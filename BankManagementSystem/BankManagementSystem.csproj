@@ -166,6 +166,12 @@
     <Compile Include="Forms\AdaugareContBancar.Designer.cs">
       <DependentUpon>AdaugareContBancar.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\CautareConturi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CautareConturi.Designer.cs">
+      <DependentUpon>CautareConturi.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\ClientMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -244,10 +250,19 @@
     <Compile Include="Forms\TransferContPersonal.Designer.cs">
       <DependentUpon>TransferContPersonal.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Tranzactii.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Tranzactii.Designer.cs">
+      <DependentUpon>Tranzactii.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\AdaugareContBancar.resx">
       <DependentUpon>AdaugareContBancar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CautareConturi.resx">
+      <DependentUpon>CautareConturi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ClientMenu.resx">
       <DependentUpon>ClientMenu.cs</DependentUpon>
@@ -287,6 +302,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\TransferContPersonal.resx">
       <DependentUpon>TransferContPersonal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Tranzactii.resx">
+      <DependentUpon>Tranzactii.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

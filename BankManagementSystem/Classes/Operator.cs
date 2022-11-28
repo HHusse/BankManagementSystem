@@ -1,6 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -39,7 +40,18 @@ namespace BankManagementSystem.Classes
             MySqlCommand cmd = new MySqlCommand($"INSERT INTO operatorii VALUES ('{this.nume}','{this.prenume}',{this.cnp},'{this.dataNasterii.ToString("MM/dd/yyyy") }'" +
                 $",'{this.user}','{this.password}',{"false"});", conn);
             cmd.ExecuteNonQuery();
-            
+
+        }
+
+        public static DataTable afisareData(string cont, MySqlConnection conn)
+        {
+            DataTable set = new DataTable();
+
+            string co = $"SELECT * FROM `tranzactii` WHERE `from` like '{cont}%' or `to` like '{cont}%'";
+            MySqlDataAdapter a = new MySqlDataAdapter(co, conn);
+            a.Fill(set);
+
+            return set;
         }
 
     }

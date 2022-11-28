@@ -24,5 +24,16 @@ namespace BankManagementSystem.Forms
         {
             Label.Text = $"Bun venit {numeOperator}";
         }
+
+        private void TranzactiiButton_Click(object sender, EventArgs e)
+        {
+            Tranzactii t = new Tranzactii();
+            this.Hide();
+            if(t.ShowDialog()==DialogResult.OK)
+            {
+
+            }
+            this.Show();
+        }
     }
 }

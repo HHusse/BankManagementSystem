@@ -47,10 +47,11 @@ namespace BankManagementSystem.Forms
             // 
             this.TranzactiiButton.Location = new System.Drawing.Point(13, 100);
             this.TranzactiiButton.Name = "TranzactiiButton";
-            this.TranzactiiButton.Size = new System.Drawing.Size(94, 27);
+            this.TranzactiiButton.Size = new System.Drawing.Size(212, 28);
             this.TranzactiiButton.TabIndex = 1;
             this.TranzactiiButton.Text = "Verificare Tranzactii";
             this.TranzactiiButton.UseVisualStyleBackColor = true;
+            this.TranzactiiButton.Click += new System.EventHandler(this.TranzactiiButton_Click);
             // 
             // OperatorMenu
             // 
