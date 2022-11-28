@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using BankManagementSystem.Classes;
 
 namespace BankManagementSystem.Forms
 {
@@ -21,7 +22,7 @@ namespace BankManagementSystem.Forms
         private void LogInButton_Click(object sender, EventArgs e)
         {
 
-            MySqlConnection conn = Classes.ConnectionDB.conectiune();
+            MySqlConnection conn = ConnectionDB.conectiune();
 
 
 
@@ -68,12 +69,7 @@ namespace BankManagementSystem.Forms
                     SelectareContBancar s = new SelectareContBancar(numeClient, cnpClient);
                     if (s.ShowDialog() == DialogResult.None)
                     {
-                        ClientNouMenu c = new ClientNouMenu(numeClient, cnpClient);
-                        if (c.ShowDialog() == DialogResult.OK)
-                        {
-                          
-                        }
-                        this.Show();
+                        
 
                     }
                     

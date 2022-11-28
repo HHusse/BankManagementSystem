@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,18 +9,16 @@ namespace BankManagementSystem.Classes
 {
     class Operator
     {
-        private int codOperator;
         private string nume;
         private string prenume;
-        private int cnp;
+        private long cnp;
         private DateTime dataNasterii;
 
         private string user;
         private string password;
 
-        public Operator(int codOperator, string nume, string prenume, int cnp, DateTime dataNasterii, string user, string password)
+        public Operator(string nume, string prenume, long cnp, DateTime dataNasterii, string user, string password)
         {
-            this.codOperator = codOperator;
             this.nume = nume;
             this.prenume = prenume;
             this.cnp = cnp;
@@ -28,15 +27,20 @@ namespace BankManagementSystem.Classes
             this.password = password;
         }
 
-        public int CodOperator { get => codOperator; set => codOperator = value; }
         public string Nume { get => nume; set => nume = value; }
         public string Prenume { get => prenume; set => prenume = value; }
-        public int Cnp { get => cnp; set => cnp = value; }
+        public long Cnp { get => cnp; set => cnp = value; }
         public DateTime DataNasterii { get => dataNasterii; set => dataNasterii = value; }
         public string User { get => user; set => user = value; }
         public string Password { get => password; set => password = value; }
 
-
+        public void adaugare(MySqlConnection conn)
+        {
+            MySqlCommand cmd = new MySqlCommand($"INSERT INTO operatorii VALUES ('{this.nume}','{this.prenume}',{this.cnp},'{this.dataNasterii.ToString("MM/dd/yyyy") }'" +
+                $",'{this.user}','{this.password}',{"false"});", conn);
+            cmd.ExecuteNonQuery();
+            
+        }
 
     }
 }

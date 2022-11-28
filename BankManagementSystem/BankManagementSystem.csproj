@@ -190,6 +190,12 @@
     <Compile Include="Forms\LoginClient.Designer.cs">
       <DependentUpon>LoginClient.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\LogInOperator.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\LogInOperator.Designer.cs">
+      <DependentUpon>LogInOperator.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -201,6 +207,12 @@
     </Compile>
     <Compile Include="Forms\Register.Designer.cs">
       <DependentUpon>Register.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\RegisterOperator.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\RegisterOperator.Designer.cs">
+      <DependentUpon>RegisterOperator.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Retragere.cs">
       <SubType>Form</SubType>
@@ -243,11 +255,17 @@
     <EmbeddedResource Include="Forms\LoginClient.resx">
       <DependentUpon>LoginClient.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\LogInOperator.resx">
+      <DependentUpon>LogInOperator.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Register.resx">
       <DependentUpon>Register.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\RegisterOperator.resx">
+      <DependentUpon>RegisterOperator.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Retragere.resx">
       <DependentUpon>Retragere.cs</DependentUpon>

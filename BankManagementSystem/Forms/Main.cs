@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BankManagementSystem.Forms;
 
 namespace BankManagementSystem
 {
@@ -19,7 +20,7 @@ namespace BankManagementSystem
 
         private void clientButton_Click(object sender, EventArgs e)
         {
-            Forms.LoginClient login = new Forms.LoginClient();
+            LoginClient login = new LoginClient();
             this.Hide();
             if (login.ShowDialog() == DialogResult.OK)
             {
@@ -30,6 +31,15 @@ namespace BankManagementSystem
 
         private void operatorButton_Click(object sender, EventArgs e)
         {
+            LogInOperator login = new LogInOperator();
+            this.Hide();
+            if (login.ShowDialog() == DialogResult.OK)
+            {
+
+            }
+            else
+                this.Close();
+            
 
         }
     }

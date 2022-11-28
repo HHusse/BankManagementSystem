@@ -10,12 +10,11 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BankManagementSystem.Classes;
 
-
 namespace BankManagementSystem.Forms
 {
-    public partial class Register : Form
+    public partial class RegisterOperator : Form
     {
-        public Register()
+        public RegisterOperator()
         {
             InitializeComponent();
         }
@@ -78,14 +77,14 @@ namespace BankManagementSystem.Forms
 
         private void ValidareButton_Click(object sender, EventArgs e)
         {
-            MySqlConnection conn = Classes.ConnectionDB.conectiune();
-            bool exista = true;
 
-            
+            MySqlConnection conn = Classes.ConnectionDB.conectiune();
+
+            bool exista = true;
 
             if (CNPBox.Text != "" && NumeBox.Text != "" && PrenumeBox.Text != "")
             {
-                MySqlCommand command = new MySqlCommand($"SELECT * FROM clientii where cnp={CNPBox.Text};", conn);
+                MySqlCommand command = new MySqlCommand($"SELECT * FROM operatorii where cnp={CNPBox.Text};", conn);
                 MySqlDataReader reader = command.ExecuteReader();
 
 
@@ -102,7 +101,7 @@ namespace BankManagementSystem.Forms
                 }
                 else if (exista == true)
                 {
-                    MessageBox.Show("Aveti deja un cont la banca noastra!");
+                    MessageBox.Show("Aveti deja un cont de operator la banca noastra!");
                     reader.Close();
                 }
                 else
@@ -116,45 +115,8 @@ namespace BankManagementSystem.Forms
             else
             {
                 MessageBox.Show("Nu ati completat toate informatiile!");
-                
             }
             conn.Close();
-            
-        }
-
-        private void RegisterButton_Click(object sender, EventArgs e)
-        {
-            if (UserBox.Text != "" && PINBox.Text != "")
-            {
-                MySqlConnection conn = new MySqlConnection();
-                conn.ConnectionString = ConnectionDB.citireConnectiune();
-                DateTime dataN = calcZiuaNasterii();
-                Client client;
-                client = new Client(NumeBox.Text, PrenumeBox.Text, Convert.ToInt64(CNPBox.Text), dataN, UserBox.Text, Convert.ToInt32(PINBox.Text));
-
-
-                conn.Open();
-                MySqlCommand command = new MySqlCommand($"SELECT * FROM loginclient where user='{UserBox.Text}';", conn);
-                MySqlDataReader reader = command.ExecuteReader();
-
-
-                if (reader.HasRows == false)
-                {
-                    reader.Close();
-                    client.adaugare(conn);
-                    this.Close();
-                }
-
-                else
-                    MessageBox.Show("Numele de utilizator " + UserBox.Text + " exista deja, va va rugam introduceti alt nume de utilizator");
-            }
-
-            else
-                MessageBox.Show("Nu ati completat user si pin-ul!");
-
-
-
-
         }
 
         private void NumeBox_TextChanged(object sender, EventArgs e)
@@ -170,6 +132,37 @@ namespace BankManagementSystem.Forms
         private void CNPBox_TextChanged(object sender, EventArgs e)
         {
             RegisterButton.Enabled = false;
+        }
+
+        private void RegisterButton_Click(object sender, EventArgs e)
+        {
+            if (UserBox.Text != "" && PasswordBox.Text != "")
+            {
+                MySqlConnection conn = ConnectionDB.conectiune();
+                DateTime dataN = calcZiuaNasterii();
+                Operator op;
+                op = new Operator(NumeBox.Text, PrenumeBox.Text, Convert.ToInt64(CNPBox.Text), dataN, UserBox.Text, PasswordBox.Text);
+
+
+                
+                MySqlCommand command = new MySqlCommand($"SELECT * FROM operatorii where user='{UserBox.Text}';", conn);
+                MySqlDataReader reader = command.ExecuteReader();
+
+
+                if (reader.HasRows == false)
+                {
+                    reader.Close();
+                    op.adaugare(conn);
+                    this.Close();
+                }
+
+                else
+                    MessageBox.Show("Numele de utilizator " + UserBox.Text + " exista deja, va va rugam introduceti alt nume de utilizator");
+            }
+
+            else
+                MessageBox.Show("Nu ati completat user si pin-ul!");
+
         }
     }
 }
