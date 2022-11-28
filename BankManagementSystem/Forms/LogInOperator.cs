@@ -48,7 +48,7 @@ namespace BankManagementSystem.Forms
             else
             {
                 reader.Close();
-                command = new MySqlCommand($"SELECT valid FROM operatorii Where user='{UserBox.Text}' and password={PasswordBox.Text };", conn);
+                command = new MySqlCommand($"SELECT * FROM operatorii Where user='{UserBox.Text}' and password={PasswordBox.Text };", conn);
                 reader = command.ExecuteReader();
                 reader.Read();
 
@@ -56,7 +56,11 @@ namespace BankManagementSystem.Forms
                 {
 
                     this.Hide();
-                    
+                    OperatorMenu o = new OperatorMenu(reader[1].ToString());
+                    if(o.ShowDialog()==DialogResult.OK)
+                    {
+
+                    }
                     this.Show();
                     conn.Close();
                     reader.Close();

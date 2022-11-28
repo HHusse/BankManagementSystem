@@ -37,7 +37,7 @@ namespace BankManagementSystem
 
         public void adaugare(MySqlConnection conn)
         {
-            MySqlCommand cmd = new MySqlCommand($"INSERT INTO Clientii VALUES ('{this.nume}','{this.prenume}',{this.cnp},'{this.dataNasterii.ToString("MM/dd/yyyy") }');",conn);
+            MySqlCommand cmd = new MySqlCommand($"INSERT INTO Clientii VALUES ('{this.nume}','{this.prenume}',{this.cnp},'{this.dataNasterii.ToString("dd/MM/yyyy") }');",conn);
             MySqlCommand cmdL = new MySqlCommand($"INSERT INTO loginclient VALUES ('{this.user}',{this.PIN},{this.cnp});",conn);
             cmd.ExecuteNonQuery();
             cmdL.ExecuteNonQuery();
