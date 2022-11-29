@@ -24,11 +24,6 @@ namespace BankManagementSystem
             this.sold = sold;
         }
 
-        public string Cont { get => nrcont; set => nrcont = value; }
-        public DateTime DataDeschiderii { get => dataDeschiderii; set => dataDeschiderii = value; }
-        public string Moneda { get => moneda; set => moneda = value; }
-        public float Sold { get => sold; set => sold = value; }
-
         public void adaugareContBancar(MySqlConnection conn)
         {
             MySqlCommand cmd = new MySqlCommand($"SELECT * FROM `conturibancare` WHERE cnp={this.cnp} and `nrCont` like '{this.nrcont.Substring(0, 3)}%'", conn);

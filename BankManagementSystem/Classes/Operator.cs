@@ -28,13 +28,6 @@ namespace BankManagementSystem.Classes
             this.password = password;
         }
 
-        public string Nume { get => nume; set => nume = value; }
-        public string Prenume { get => prenume; set => prenume = value; }
-        public long Cnp { get => cnp; set => cnp = value; }
-        public DateTime DataNasterii { get => dataNasterii; set => dataNasterii = value; }
-        public string User { get => user; set => user = value; }
-        public string Password { get => password; set => password = value; }
-
         public void adaugare(MySqlConnection conn)
         {
             MySqlCommand cmd = new MySqlCommand($"INSERT INTO operatorii VALUES ('{this.nume}','{this.prenume}',{this.cnp},'{this.dataNasterii.ToString("MM/dd/yyyy") }'" +
