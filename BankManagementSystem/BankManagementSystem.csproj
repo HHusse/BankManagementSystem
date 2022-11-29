@@ -138,6 +138,7 @@
       <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.2\lib\netstandard2.0\System.Threading.Tasks.Extensions.dll</HintPath>
     </Reference>
     <Reference Include="System.Transactions" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -184,6 +185,12 @@
     <Compile Include="Forms\ClientNouMenu.Designer.cs">
       <DependentUpon>ClientNouMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\ConturiExistente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ConturiExistente.Designer.cs">
+      <DependentUpon>ConturiExistente.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Depunere.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -214,6 +221,12 @@
     <Compile Include="Forms\OperatorMenu.Designer.cs">
       <DependentUpon>OperatorMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\RaportTranzactii.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\RaportTranzactii.Designer.cs">
+      <DependentUpon>RaportTranzactii.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Register.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -237,6 +250,12 @@
     </Compile>
     <Compile Include="Forms\SelectareContBancar.Designer.cs">
       <DependentUpon>SelectareContBancar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SumeTotale.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SumeTotale.Designer.cs">
+      <DependentUpon>SumeTotale.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Transfer.cs">
       <SubType>Form</SubType>
@@ -270,6 +289,9 @@
     <EmbeddedResource Include="Forms\ClientNouMenu.resx">
       <DependentUpon>ClientNouMenu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ConturiExistente.resx">
+      <DependentUpon>ConturiExistente.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Depunere.resx">
       <DependentUpon>Depunere.cs</DependentUpon>
     </EmbeddedResource>
@@ -285,6 +307,9 @@
     <EmbeddedResource Include="Forms\OperatorMenu.resx">
       <DependentUpon>OperatorMenu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\RaportTranzactii.resx">
+      <DependentUpon>RaportTranzactii.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Register.resx">
       <DependentUpon>Register.cs</DependentUpon>
     </EmbeddedResource>
@@ -296,6 +321,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\SelectareContBancar.resx">
       <DependentUpon>SelectareContBancar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SumeTotale.resx">
+      <DependentUpon>SumeTotale.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Transfer.resx">
       <DependentUpon>Transfer.cs</DependentUpon>

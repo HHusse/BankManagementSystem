@@ -78,5 +78,16 @@ namespace BankManagementSystem.Forms
         {
             this.DialogResult = DialogResult.OK;
         }
+
+        private void Conturi_DoubleClick(object sender, EventArgs e)
+        {
+            ClientMenu c = new ClientMenu(cnpClient, numeClient, nrContClient);
+            this.Hide();
+            if (c.ShowDialog() == DialogResult.OK)
+            {
+                refreshContTabel();
+                this.Show();
+            }
+        }
     }
 }

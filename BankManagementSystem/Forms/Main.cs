@@ -26,7 +26,7 @@ namespace BankManagementSystem
             {
             }
             else
-                this.Close();
+                this.Show();
         }
 
         private void operatorButton_Click(object sender, EventArgs e)
@@ -38,7 +38,7 @@ namespace BankManagementSystem
 
             }
             else
-                this.Close();
+                this.Show();
             
 
         }

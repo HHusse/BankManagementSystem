@@ -23,10 +23,10 @@ namespace BankManagementSystem.Forms
         private void CNPBox_TextChanged(object sender, EventArgs e)
         {
             listBox.Items.Clear();
-            string lastCNP=" ";
-            MySqlCommand c = new MySqlCommand($"SELECT * FROM `conturibancare` WHERE `cnp` like '{CNPBox.Text}%'",ConnectionDB.conectiune());
+            string lastCNP = " ";
+            MySqlCommand c = new MySqlCommand($"SELECT * FROM `conturibancare` WHERE `cnp` like '{CNPBox.Text}%'", ConnectionDB.conectiune());
             MySqlDataReader r = c.ExecuteReader();
-            while(r.Read())
+            while (r.Read())
             {
                 if (lastCNP != r[0].ToString())
                 {
@@ -50,7 +50,7 @@ namespace BankManagementSystem.Forms
                 if (lastCNP != r[0].ToString())
                 {
                     listBox.Items.Add(" ");
-                    listBox.Items.Add("CNP - "+r[0].ToString());
+                    listBox.Items.Add("CNP - " + r[0].ToString());
                     listBox.Items.Add(" ");
                     lastCNP = r[0].ToString();
                 }
@@ -60,8 +60,15 @@ namespace BankManagementSystem.Forms
 
         private void listBox_DoubleClick(object sender, EventArgs e)
         {
-            selectat = listBox.SelectedItem.ToString();
-            this.DialogResult = DialogResult.OK;
+            if (listBox.SelectedItem.ToString() != " " && listBox.SelectedItem.ToString().Contains("CNP") != true)
+            {
+                selectat = listBox.SelectedItem.ToString();
+                this.DialogResult = DialogResult.OK;
+            }
+            else
+            {
+                MessageBox.Show("Selectati un cont bancar");
+            }
         }
     }
 }

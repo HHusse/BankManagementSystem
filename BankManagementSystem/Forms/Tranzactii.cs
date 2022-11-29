@@ -46,5 +46,10 @@ namespace BankManagementSystem.Forms
                 NrContBox.Text = CautareConturi.selectat;
             }
         }
+
+        private void InapoiButton_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.OK;
+        }
     }
 }

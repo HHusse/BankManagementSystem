@@ -59,7 +59,7 @@ namespace BankManagementSystem
 
             MySqlCommand cmd = new MySqlCommand($"UPDATE `conturibancare` SET `sold`=`sold`+{suma} WHERE `cnp`={cnp} and `nrCont`='{nrCont}' ;", conn);
             cmd.ExecuteNonQuery();
-            cmd = new MySqlCommand($"INSERT INTO `tranzactii`(`from`, `tiptranzactie`, `suma`, `data`, `moneda`) VALUES ('{nrCont}','{"Depunere"}',{suma},'{DateTime.Now.ToString("dd/MM/yy")}','{nrCont.Substring(0,3)}');", conn);
+            cmd = new MySqlCommand($"INSERT INTO `tranzactii`(`from`, `tiptranzactie`, `suma`, `data`, `moneda`) VALUES ('{nrCont}','{"Depunere"}',{suma},'{DateTime.Now.ToString("dd/MM/yyyy")}','{nrCont.Substring(0,3)}');", conn);
             cmd.ExecuteNonQuery();
 
         }
@@ -75,7 +75,7 @@ namespace BankManagementSystem
                 rdr.Close();
                 cmd = new MySqlCommand($"UPDATE `conturibancare` SET `sold`=`sold`-{suma} WHERE `cnp`={cnp} and `nrCont`='{nrCont}' ;", conn);
                 cmd.ExecuteNonQuery();
-                cmd = new MySqlCommand($"INSERT INTO `tranzactii`(`from`, `tiptranzactie`, `suma`, `data`, `moneda`) VALUES ('{nrCont}','{"Retragere"}',{suma},'{DateTime.Now.ToString("dd/MM/yy")}','{nrCont.Substring(0, 3)}');", conn);
+                cmd = new MySqlCommand($"INSERT INTO `tranzactii`(`from`, `tiptranzactie`, `suma`, `data`, `moneda`) VALUES ('{nrCont}','{"Retragere"}',{suma},'{DateTime.Now.ToString("dd/MM/yyyy")}','{nrCont.Substring(0, 3)}');", conn);
                 cmd.ExecuteNonQuery();
             }
 
@@ -107,7 +107,7 @@ namespace BankManagementSystem
                     cmd = new MySqlCommand($"UPDATE `conturibancare` SET `sold`=`sold`+{suma} WHERE `cnp`={cnpDestinatar} and `nrCont`='{to}' ;", conn);
                     cmd.ExecuteNonQuery();
 
-                    cmd = new MySqlCommand($"INSERT INTO `tranzactii`(`from`,`to`, `tiptranzactie`, `suma`, `data`, `moneda`) VALUES ('{from}','{to}','{"Transfer"}',{suma},'{DateTime.Now.ToString("dd/MM/yy")}','{from.Substring(0, 3)}');", conn);
+                    cmd = new MySqlCommand($"INSERT INTO `tranzactii`(`from`,`to`, `tiptranzactie`, `suma`, `data`, `moneda`) VALUES ('{from}','{to}','{"Transfer"}',{suma},'{DateTime.Now.ToString("dd/MM/yyyy")}','{from.Substring(0, 3)}');", conn);
                     cmd.ExecuteNonQuery();
                 }
                 else
@@ -149,7 +149,7 @@ namespace BankManagementSystem
                     cmd.ExecuteNonQuery();
                     cmd = new MySqlCommand($"UPDATE `conturibancare` SET `sold`=`sold`+{sumaTrimisa} WHERE `cnp`={cnp} and `nrCont`='{to}' ;", conn);
                     cmd.ExecuteNonQuery();
-                    cmd = new MySqlCommand($"INSERT INTO `tranzactii`(`from`, `to`, `tiptranzactie`, `suma`, `data`, `moneda`) VALUES ('{from}','{to}','{"Transfer Conturi Personale"}',{suma},'{DateTime.Now.ToString("dd/MM/yy")}','{from.Substring(0, 3)+"->"+to.Substring(0,3)}');", conn);
+                    cmd = new MySqlCommand($"INSERT INTO `tranzactii`(`from`, `to`, `tiptranzactie`, `suma`, `data`, `moneda`) VALUES ('{from}','{to}','{"Transfer Conturi Personale"}',{suma},'{DateTime.Now.ToString("dd/MM/yyyy")}','{from.Substring(0, 3)+"->"+to.Substring(0,3)}');", conn);
                     cmd.ExecuteNonQuery();
                 }
 

@@ -35,5 +35,39 @@ namespace BankManagementSystem.Forms
             }
             this.Show();
         }
+
+        private void SumeButton_Click(object sender, EventArgs e)
+        {
+            SumeTotale s = new SumeTotale();
+            this.Hide();
+            if(s.ShowDialog()==DialogResult.OK)
+            {
+                
+            }
+            this.Show();
+        }
+
+        private void ConutriExistenteButton_Click(object sender, EventArgs e)
+        {
+            ConturiExistente c = new ConturiExistente();
+            this.Hide();
+            if (c.ShowDialog() == DialogResult.OK)
+            {
+
+            }
+            this.Show();
+        }
+
+        private void RaportButton_Click(object sender, EventArgs e)
+        {
+            RaportTranzactii r = new RaportTranzactii();
+            this.Hide();
+            if (r.ShowDialog() == DialogResult.OK)
+            {
+
+            }
+            this.Show();
+
+        }
     }
 }

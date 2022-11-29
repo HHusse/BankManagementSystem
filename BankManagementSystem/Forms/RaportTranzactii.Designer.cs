@@ -1,7 +1,7 @@
 ﻿
 namespace BankManagementSystem.Forms
 {
-    partial class Tranzactii
+    partial class RaportTranzactii
     {
         /// <summary>
         /// Required designer variable.
@@ -30,13 +30,31 @@ namespace BankManagementSystem.Forms
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.DataPicker = new System.Windows.Forms.DateTimePicker();
+            this.TranzactiiLabel = new System.Windows.Forms.Label();
             this.GridView = new System.Windows.Forms.DataGridView();
-            this.NrContBox = new System.Windows.Forms.TextBox();
-            this.nrContLabel = new System.Windows.Forms.Label();
-            this.CautareButton = new System.Windows.Forms.Button();
             this.InapoiButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.GridView)).BeginInit();
             this.SuspendLayout();
+            // 
+            // DataPicker
+            // 
+            this.DataPicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DataPicker.Location = new System.Drawing.Point(12, 24);
+            this.DataPicker.Name = "DataPicker";
+            this.DataPicker.Size = new System.Drawing.Size(129, 22);
+            this.DataPicker.TabIndex = 0;
+            this.DataPicker.ValueChanged += new System.EventHandler(this.DataPicker_ValueChanged);
+            // 
+            // TranzactiiLabel
+            // 
+            this.TranzactiiLabel.AutoSize = true;
+            this.TranzactiiLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TranzactiiLabel.Location = new System.Drawing.Point(195, 22);
+            this.TranzactiiLabel.Name = "TranzactiiLabel";
+            this.TranzactiiLabel.Size = new System.Drawing.Size(90, 24);
+            this.TranzactiiLabel.TabIndex = 1;
+            this.TranzactiiLabel.Text = "xxxxxxxx";
             // 
             // GridView
             // 
@@ -56,7 +74,7 @@ namespace BankManagementSystem.Forms
             this.GridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.GridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.GridView.EnableHeadersVisualStyles = false;
-            this.GridView.Location = new System.Drawing.Point(12, 87);
+            this.GridView.Location = new System.Drawing.Point(12, 62);
             this.GridView.MultiSelect = false;
             this.GridView.Name = "GridView";
             this.GridView.ReadOnly = true;
@@ -64,60 +82,32 @@ namespace BankManagementSystem.Forms
             this.GridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToFirstHeader;
             this.GridView.RowTemplate.Height = 24;
             this.GridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.GridView.Size = new System.Drawing.Size(1143, 351);
-            this.GridView.TabIndex = 0;
-            // 
-            // NrContBox
-            // 
-            this.NrContBox.Location = new System.Drawing.Point(12, 39);
-            this.NrContBox.Name = "NrContBox";
-            this.NrContBox.Size = new System.Drawing.Size(208, 22);
-            this.NrContBox.TabIndex = 2;
-            this.NrContBox.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
-            // 
-            // nrContLabel
-            // 
-            this.nrContLabel.AutoSize = true;
-            this.nrContLabel.Location = new System.Drawing.Point(12, 19);
-            this.nrContLabel.Name = "nrContLabel";
-            this.nrContLabel.Size = new System.Drawing.Size(83, 17);
-            this.nrContLabel.TabIndex = 4;
-            this.nrContLabel.Text = "Numar Cont";
-            // 
-            // CautareButton
-            // 
-            this.CautareButton.Location = new System.Drawing.Point(916, 32);
-            this.CautareButton.Name = "CautareButton";
-            this.CautareButton.Size = new System.Drawing.Size(238, 29);
-            this.CautareButton.TabIndex = 5;
-            this.CautareButton.Text = "Cauta conturi dupa CNP";
-            this.CautareButton.UseVisualStyleBackColor = true;
-            this.CautareButton.Click += new System.EventHandler(this.CautareButton_Click);
+            this.GridView.Size = new System.Drawing.Size(1055, 351);
+            this.GridView.TabIndex = 2;
             // 
             // InapoiButton
             // 
-            this.InapoiButton.Location = new System.Drawing.Point(15, 455);
+            this.InapoiButton.Location = new System.Drawing.Point(12, 437);
             this.InapoiButton.Name = "InapoiButton";
             this.InapoiButton.Size = new System.Drawing.Size(94, 31);
-            this.InapoiButton.TabIndex = 6;
+            this.InapoiButton.TabIndex = 11;
             this.InapoiButton.Text = "Inapoi";
             this.InapoiButton.UseVisualStyleBackColor = true;
             this.InapoiButton.Click += new System.EventHandler(this.InapoiButton_Click);
             // 
-            // Tranzactii
+            // RaportTranzactii
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1167, 498);
+            this.ClientSize = new System.Drawing.Size(1079, 488);
             this.Controls.Add(this.InapoiButton);
-            this.Controls.Add(this.CautareButton);
-            this.Controls.Add(this.nrContLabel);
-            this.Controls.Add(this.NrContBox);
             this.Controls.Add(this.GridView);
-            this.Name = "Tranzactii";
+            this.Controls.Add(this.TranzactiiLabel);
+            this.Controls.Add(this.DataPicker);
+            this.Name = "RaportTranzactii";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Tranzactii";
-            this.Load += new System.EventHandler(this.Tranzactii_Load);
+            this.Text = "RaportTranzactii";
+            this.Load += new System.EventHandler(this.RaportTranzactii_Load);
             ((System.ComponentModel.ISupportInitialize)(this.GridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -126,10 +116,9 @@ namespace BankManagementSystem.Forms
 
         #endregion
 
+        private System.Windows.Forms.DateTimePicker DataPicker;
+        private System.Windows.Forms.Label TranzactiiLabel;
         private System.Windows.Forms.DataGridView GridView;
-        private System.Windows.Forms.TextBox NrContBox;
-        private System.Windows.Forms.Label nrContLabel;
-        private System.Windows.Forms.Button CautareButton;
         private System.Windows.Forms.Button InapoiButton;
     }
 }

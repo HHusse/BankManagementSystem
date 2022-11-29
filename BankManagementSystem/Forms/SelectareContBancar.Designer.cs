@@ -43,6 +43,7 @@ namespace BankManagementSystem.Forms
             this.Conturi.Size = new System.Drawing.Size(193, 292);
             this.Conturi.TabIndex = 0;
             this.Conturi.SelectedIndexChanged += new System.EventHandler(this.Conturi_SelectedIndexChanged);
+            this.Conturi.DoubleClick += new System.EventHandler(this.Conturi_DoubleClick);
             // 
             // SelectButton
             // 
