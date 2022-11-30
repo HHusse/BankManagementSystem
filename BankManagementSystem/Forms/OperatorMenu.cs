@@ -13,7 +13,7 @@ namespace BankManagementSystem.Forms
     public partial class OperatorMenu : Form
     {
         string numeOperator;
-       
+
         public OperatorMenu(string nume)
         {
             InitializeComponent();
@@ -29,7 +29,7 @@ namespace BankManagementSystem.Forms
         {
             Tranzactii t = new Tranzactii();
             this.Hide();
-            if(t.ShowDialog()==DialogResult.OK)
+            if (t.ShowDialog() == DialogResult.OK)
             {
 
             }
@@ -40,9 +40,9 @@ namespace BankManagementSystem.Forms
         {
             SumeTotale s = new SumeTotale();
             this.Hide();
-            if(s.ShowDialog()==DialogResult.OK)
+            if (s.ShowDialog() == DialogResult.OK)
             {
-                
+
             }
             this.Show();
         }
@@ -68,6 +68,44 @@ namespace BankManagementSystem.Forms
             }
             this.Show();
 
+        }
+
+        private void DepunereButton_Click(object sender, EventArgs e)
+        {
+            DepunereOperator d = new DepunereOperator();
+            this.Hide();
+            if (d.ShowDialog() == DialogResult.OK)
+            {
+
+            }
+            this.Show();
+        }
+
+        private void InapoiButton_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.OK;
+        }
+
+        private void Retragere_Click(object sender, EventArgs e)
+        {
+            RetragereOperator r = new RetragereOperator();
+            this.Hide();
+            if (r.ShowDialog() == DialogResult.OK)
+            {
+
+            }
+            this.Show();
+        }
+
+        private void SoldButton_Click(object sender, EventArgs e)
+        {
+            InterogareSold i = new InterogareSold();
+            this.Hide();
+            if (i.ShowDialog() == DialogResult.OK)
+            {
+
+            }
+            this.Show();
         }
     }
 }

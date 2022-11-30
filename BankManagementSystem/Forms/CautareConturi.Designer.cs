@@ -70,6 +70,7 @@ namespace BankManagementSystem.Forms
             this.Controls.Add(this.listBox);
             this.Controls.Add(this.CNPBox);
             this.Name = "CautareConturi";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CautareConturi";
             this.Load += new System.EventHandler(this.CautareConturi_Load);
             this.ResumeLayout(false);

@@ -77,8 +77,6 @@ namespace BankManagementSystem
             else
                 MessageBox.Show("Fonduri insficiente!");
 
-
-
         }
 
         public static void TransferBancar(float suma, string from, string to, long cnp, MySqlConnection conn)

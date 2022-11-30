@@ -197,6 +197,18 @@
     <Compile Include="Forms\Depunere.Designer.cs">
       <DependentUpon>Depunere.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\DepunereOperator.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DepunereOperator.Designer.cs">
+      <DependentUpon>DepunereOperator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\InterogareSold.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\InterogareSold.Designer.cs">
+      <DependentUpon>InterogareSold.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\LoginClient.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -244,6 +256,12 @@
     </Compile>
     <Compile Include="Forms\Retragere.Designer.cs">
       <DependentUpon>Retragere.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\RetragereOperator.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\RetragereOperator.Designer.cs">
+      <DependentUpon>RetragereOperator.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\SelectareContBancar.cs">
       <SubType>Form</SubType>
@@ -295,6 +313,12 @@
     <EmbeddedResource Include="Forms\Depunere.resx">
       <DependentUpon>Depunere.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DepunereOperator.resx">
+      <DependentUpon>DepunereOperator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\InterogareSold.resx">
+      <DependentUpon>InterogareSold.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\LoginClient.resx">
       <DependentUpon>LoginClient.cs</DependentUpon>
     </EmbeddedResource>
@@ -318,6 +342,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Retragere.resx">
       <DependentUpon>Retragere.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\RetragereOperator.resx">
+      <DependentUpon>RetragereOperator.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\SelectareContBancar.resx">
       <DependentUpon>SelectareContBancar.cs</DependentUpon>

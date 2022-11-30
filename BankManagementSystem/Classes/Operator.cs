@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace BankManagementSystem.Classes
 {
@@ -118,13 +119,13 @@ namespace BankManagementSystem.Classes
             rdr.Close();
             return suma;
         }
-        
+
         public static int ConturiTotale()
         {
             int ct = 0;
             MySqlCommand cmd = new MySqlCommand($"SELECT * FROM `conturibancare`", ConnectionDB.conectiune());
             MySqlDataReader rdr = cmd.ExecuteReader();
-            while(rdr.Read())
+            while (rdr.Read())
             {
                 ct++;
             }
@@ -187,5 +188,50 @@ namespace BankManagementSystem.Classes
             }
             return ct;
         }
+
+        public static void DepunereNumerar(float suma, string nrCont, MySqlConnection conn)
+        {
+            float sumaFinala = suma - (suma * (float)0.01);
+            MySqlCommand cmd = new MySqlCommand($"UPDATE `conturibancare` SET `sold`=`sold`+{sumaFinala} WHERE `nrCont`='{nrCont}' ;", conn);
+            cmd.ExecuteNonQuery();
+            cmd = new MySqlCommand($"INSERT INTO `tranzactii`(`from`, `tiptranzactie`, `suma`, `data`, `moneda`) VALUES ('{nrCont}','{"Depunere"}',{sumaFinala},'{DateTime.Now.ToString("dd/MM/yyyy")}','{nrCont.Substring(0, 3)}');", conn);
+            cmd.ExecuteNonQuery();
+        }
+
+        public static bool RetragereNumerar(float suma, string nrCont, MySqlConnection conn)
+        {
+            MySqlCommand cmd = new MySqlCommand($"SELECT * FROM `conturibancare` WHERE  `nrCont`='{nrCont}'", conn);
+            MySqlDataReader rdr = cmd.ExecuteReader();
+            rdr.Read();
+
+            if (float.Parse(rdr["sold"].ToString()) >= suma)
+            {
+                rdr.Close();
+                cmd = new MySqlCommand($"UPDATE `conturibancare` SET `sold`=`sold`-{suma} WHERE `nrCont`='{nrCont}' ;", conn);
+                cmd.ExecuteNonQuery();
+                cmd = new MySqlCommand($"INSERT INTO `tranzactii`(`from`, `tiptranzactie`, `suma`, `data`, `moneda`) VALUES ('{nrCont}','{"Retragere"}',{suma},'{DateTime.Now.ToString("dd/MM/yyyy")}','{nrCont.Substring(0, 3)}');", conn);
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+
+            else 
+            {
+                MessageBox.Show("Fonduri insficiente!");
+                return false;
+            }
+                
+
+        }
+
+        public static float interogareSold(string nrCont)
+        {
+            MySqlCommand cmd = new MySqlCommand($"SELECT * FROM `conturibancare` WHERE `nrCont`='{nrCont}'", ConnectionDB.conectiune());
+            MySqlDataReader rdr = cmd.ExecuteReader();
+            rdr.Read();
+            float sold = Convert.ToSingle(rdr[4].ToString());
+            return sold;
+
+        }
+
     }
 }
